@@ -1801,6 +1801,16 @@ var ETH_UNITS = [
     'nanoether',
     'microether',
     'milliether',
+	'femtoexp',
+    'picoexp',
+    'nanoexp',
+    'microexp',
+    'milliexp',
+	'femtoexpanse',
+    'picoexpanse',
+    'nanoexpanse',
+    'microexpanse',
+    'milliexpanse',
     'nano',
     'micro',
     'milli',
@@ -1816,7 +1826,29 @@ var ETH_UNITS = [
     'Nether',
     'Dether',
     'Vether',
-    'Uether'
+    'Uether',
+    'Mexp',
+    'Gexp',
+    'Texp',
+    'Pexp',
+    'Eexp',
+    'Zexp',
+    'Yexp',
+    'Nexp',
+    'Dexp',
+    'Vexp',
+    'Uexp',
+    'Mexpanse',
+    'Gexpanse',
+    'Texpanse',
+    'Pexpanse',
+    'Eexpanse',
+    'Zexpanse',
+    'Yexpanse',
+    'Nexpanse',
+    'Dexpanse',
+    'Vexpanse',
+    'Uexpanse'
 ];
 
 module.exports = {
@@ -1912,33 +1944,55 @@ var sha3 = require('./sha3.js');
 var utf8 = require('utf8');
 
 var unitMap = {
-    'noether':      '0',    
-    'wei':          '1',
-    'kwei':         '1000',
-    'Kwei':         '1000',
-    'babbage':      '1000',
-    'femtoether':   '1000',
-    'mwei':         '1000000',
-    'Mwei':         '1000000',
-    'lovelace':     '1000000',
-    'picoether':    '1000000',
-    'gwei':         '1000000000',
-    'Gwei':         '1000000000',
-    'shannon':      '1000000000',
-    'nanoether':    '1000000000',
-    'nano':         '1000000000',
-    'szabo':        '1000000000000',
-    'microether':   '1000000000000',
-    'micro':        '1000000000000',
-    'finney':       '1000000000000000',
-    'milliether':    '1000000000000000',
-    'milli':         '1000000000000000',
-    'ether':        '1000000000000000000',
-    'kether':       '1000000000000000000000',
-    'grand':        '1000000000000000000000',
-    'mether':       '1000000000000000000000000',
-    'gether':       '1000000000000000000000000000',
-    'tether':       '1000000000000000000000000000000'
+    'noether':		'0', 
+	'noexp':		'0',
+	'noexpanse':	'0',   
+    'wei':			'1',
+    'kwei':			'1000',
+    'Kwei':			'1000',
+    'babbage':		'1000',
+    'femtoether':	'1000',
+	'femtoexp':		'1000',
+	'femtoexpanse':	'1000',
+    'mwei':			'1000000',
+    'Mwei':			'1000000',
+    'lovelace':		'1000000',
+    'picoether':	'1000000',
+	'picoexp':		'1000000',
+	'picoexpanse':	'1000000',
+    'gwei':			'1000000000',
+    'Gwei':			'1000000000',
+    'shannon':		'1000000000',
+    'nanoether':	'1000000000',
+	'nanoexp':		'1000000000',
+	'nanoexpanse':	'1000000000',
+    'nano':			'1000000000',
+    'szabo':		'1000000000000',
+    'microether':	'1000000000000',
+	'microexp':		'1000000000000',
+	'microexpanse':	'1000000000000',
+    'micro':		'1000000000000',
+    'finney':		'1000000000000000',
+    'milliether':	'1000000000000000',
+	'milliexp':		'1000000000000000',
+	'milliexpanse':	'1000000000000000',
+    'milli':		'1000000000000000',
+    'ether':		'1000000000000000000',
+	'exp':			'1000000000000000000',
+	'expanse':		'1000000000000000000',
+    'kether':		'1000000000000000000000',
+	'kexp':			'1000000000000000000000',
+	'kexpanse':		'1000000000000000000000',
+    'grand':		'1000000000000000000000',
+    'mether':		'1000000000000000000000000',
+	'mexp':			'1000000000000000000000000',
+	'mexpanse':		'1000000000000000000000000',
+    'gether':		'1000000000000000000000000000',
+	'gexp':			'1000000000000000000000000000',
+	'gexpanse':		'1000000000000000000000000000',
+    'tether':		'1000000000000000000000000000000',
+    'texp':			'1000000000000000000000000000000',
+    'texpanse':		'1000000000000000000000000000000'
 };
 
 /**
@@ -2169,17 +2223,17 @@ var getValueOfUnit = function (unit) {
  * Takes a number of wei and converts it to any other ether unit.
  *
  * Possible units are:
- *   SI Short   SI Full        Effigy       Other
- * - kwei       femtoether     babbage
- * - mwei       picoether      lovelace
- * - gwei       nanoether      shannon      nano
- * - --         microether     szabo        micro
- * - --         milliether     finney       milli
- * - ether      --             --
- * - kether                    --           grand
- * - mether
- * - gether
- * - tether
+ *   SI Short   SI Full        Effigy       Other		Exp Short		Exp Full	
+ * - kwei       femtoether     babbage					femtoexp		femtoexpanse
+ * - mwei       picoether      lovelace					picoexp			picoexpanse
+ * - gwei       nanoether      shannon      nano		nanoexp			nanoexpanse
+ * - --         microether     szabo        micro		microexp		microexpanse
+ * - --         milliether     finney       milli		milliexp		milliexpanse
+ * - ether      --             --						exp				expanse
+ * - kether                    --           grand		kexp			kexpanse
+ * - mether												mexp			mexpanse
+ * - gether												gexp			gexpanse
+ * - tether												texp			texpanses
  *
  * @method fromWei
  * @param {Number|String} number can be a number, number string or a HEX of a decimal
@@ -2196,18 +2250,17 @@ var fromWei = function(number, unit) {
  * Takes a number of a unit and converts it to wei.
  *
  * Possible units are:
- *   SI Short   SI Full        Effigy       Other
- * - kwei       femtoether     babbage
- * - mwei       picoether      lovelace
- * - gwei       nanoether      shannon      nano
- * - --         microether     szabo        micro
- * - --         microether     szabo        micro
- * - --         milliether     finney       milli
- * - ether      --             --
- * - kether                    --           grand
- * - mether
- * - gether
- * - tether
+ *   SI Short   SI Full        Effigy       Other		Exp Short		Exp Full	
+ * - kwei       femtoether     babbage					femtoexp		femtoexpanse
+ * - mwei       picoether      lovelace					picoexp			picoexpanse
+ * - gwei       nanoether      shannon      nano		nanoexp			nanoexpanse
+ * - --         microether     szabo        micro		microexp		microexpanse
+ * - --         milliether     finney       milli		milliexp		milliexpanse
+ * - ether      --             --						exp				expanse
+ * - kether                    --           grand		kexp			kexpanse
+ * - mether												mexp			mexpanse
+ * - gether												gexp			gexpanse
+ * - tether												texp			texpanse
  *
  * @method toWei
  * @param {Number|String|BigNumber} number can be a number, number string or a HEX of a decimal
@@ -2525,6 +2578,7 @@ function Web3 (provider) {
     this._requestManager = new RequestManager(provider);
     this.currentProvider = provider;
     this.eth = new Eth(this);
+	this.exp = this.eth;
     this.db = new DB(this);
     this.shh = new Shh(this);
     this.net = new Net(this);
@@ -2600,6 +2654,11 @@ var properties = function () {
         }),
         new Property({
             name: 'version.ethereum',
+            getter: 'eth_protocolVersion',
+            inputFormatter: utils.toDecimal
+        }),
+		new Property({
+            name: 'version.expanse',
             getter: 'eth_protocolVersion',
             inputFormatter: utils.toDecimal
         }),
@@ -8377,7 +8436,8 @@ module.exports = transfer;
 	                if (i % 4) {
 	                    var bits1 = map.indexOf(base64Str.charAt(i - 1)) << ((i % 4) * 2);
 	                    var bits2 = map.indexOf(base64Str.charAt(i)) >>> (6 - (i % 4) * 2);
-	                    words[nBytes >>> 2] |= (bits1 | bits2) << (24 - (nBytes % 4) * 8);
+	                    var bitsCombined = bits1 | bits2;
+	                    words[nBytes >>> 2] |= (bitsCombined) << (24 - (nBytes % 4) * 8);
 	                    nBytes++;
 	                }
 	            }
