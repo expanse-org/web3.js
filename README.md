@@ -15,7 +15,7 @@ This API has been modified to support both Expanse and Ethereum Applications.
 Calls may be made through either web3.exp or web3.eth interchangably and both Ethereum and Expanse units are supported.
 For information on porting software that uses ethereum to expanse, please see our [Expanse/Ethereum Cross Compatibility Guide](https://github.com/expanse-org/wiki/wiki/Cross-Compatibility-Guide)
 
-# Ethereum JavaScript API
+# Expanse and Ethereum JavaScript API
 
 [![Join the chat at https://gitter.im/ethereum/web3.js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ethereum/web3.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -35,7 +35,7 @@ You need to run a local Ethereum node to use this library.
 ### Node.js
 
 ```bash
-npm install web3-expanse
+npm install @expanse/web3
 ```
 
 ### Meteor.js

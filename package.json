@@ -1,5 +1,5 @@
 {
-  "name": "web3-expanse",
+  "name": "@expanse/web3",
   "namespace": "expanse",
   "version": "0.15.3",
   "description": "Expanse and Ethereum JavaScript API, middleware to talk to an expanse or ethereum over RPC",
