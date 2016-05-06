@@ -9,13 +9,18 @@ To migrate to this version, please follow the guide:
 +var web3 = new Web3();
 ```
 
+# Expanse Support
+
+This API has been modified to support both Expanse and Ethereum Applications. 
+Calls may be made through either web3.exp or web3.eth interchangably and both Ethereum and Expanse units are supported.
+For information on porting software that uses ethereum to expanse, please see our [Expanse/Ethereum Cross Compatibility Guide](https://github.com/expanse-org/wiki/wiki/Cross-Compatibility-Guide)
 
 # Ethereum JavaScript API
 
 [![Join the chat at https://gitter.im/ethereum/web3.js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ethereum/web3.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-This is the Ethereum compatible [JavaScript API](https://github.com/ethereum/wiki/wiki/JavaScript-API)
-which implements the [Generic JSON RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC) spec. It's available on npm as a node module, for bower and component as an embeddable js and as a meteor.js package.
+This is the Ethereum and Expanse compatible [JavaScript API](https://github.com/expanse-org/wiki/wiki/JavaScript-API)
+which implements the [Generic JSON RPC](https://github.com/expanse-org/wiki/wiki/JSON-RPC) spec. It's available on npm as a node module, for bower and component as an embeddable js and as a meteor.js package.
 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![dependency status][dep-image]][dep-url] [![dev dependency status][dep-dev-image]][dep-dev-url][![Coverage Status][coveralls-image]][coveralls-url][![Stories in Ready][waffle-image]][waffle-url]
 
@@ -23,36 +28,36 @@ which implements the [Generic JSON RPC](https://github.com/ethereum/wiki/wiki/JS
 
 You need to run a local Ethereum node to use this library.
 
-[Documentation](https://github.com/ethereum/wiki/wiki/JavaScript-API)
+[Documentation](https://github.com/expanse-org/wiki/wiki/JavaScript-API)
 
 ## Installation
 
 ### Node.js
 
 ```bash
-npm install web3
+npm install web3-expanse
 ```
 
 ### Meteor.js
 
 ```bash
-meteor add ethereum:web3
+meteor add expanse:web3
 ```
 
 ### As Browser module
 Bower
 
 ```bash
-bower install web3
+bower install web3-expanse
 ```
 
 Component
 
 ```bash
-component install ethereum/web3.js
+component install expanse-org/web3.js
 ```
 
-* Include `ethereum.min.js` in your html file. (not required for the meteor package)
+* Include `web3.min.js` in your html file. (not required for the meteor package)
 
 ## Usage
 Use the `web3` object directly from global namespace:
@@ -63,7 +68,10 @@ console.log(web3); // {eth: .., shh: ...} // it's here!
 
 Set a provider (HttpProvider)
 
-```js
+Expanse: ```js
+web3.setProvider(new web3.providers.HttpProvider('http://localhost:9656'));
+```
+Ethereum: ```js
 web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
 ```
 
@@ -73,8 +81,13 @@ There you go, now you can use it:
 var coinbase = web3.eth.coinbase;
 var balance = web3.eth.getBalance(coinbase);
 ```
+or
+```js
+var coinbase = web3.exp.coinbase;
+var balance = web3.exp.getBalance(coinbase);
+```
 
-You can find more examples in [`example`](https://github.com/ethereum/web3.js/tree/master/example) directory.
+You can find more examples in [`example`](https://github.com/expanse-org/web3.js/tree/master/example) directory.
 
 
 ## Contribute!
@@ -104,8 +117,9 @@ npm run-script build
 npm test
 ```
 
+These urls are pending update for Expanse:
 [npm-image]: https://badge.fury.io/js/web3.png
-[npm-url]: https://npmjs.org/package/web3
+[npm-url]: https://npmjs.org/package/web3-expanse
 [travis-image]: https://travis-ci.org/ethereum/web3.js.svg
 [travis-url]: https://travis-ci.org/ethereum/web3.js
 [dep-image]: https://david-dm.org/ethereum/web3.js.svg
