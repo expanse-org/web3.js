@@ -1,8 +1,8 @@
 {
-  "name": "web3",
-  "namespace": "ethereum",
+  "name": "web3-expanse",
+  "namespace": "expanse",
   "version": "0.18.3",
-  "description": "Ethereum JavaScript API, middleware to talk to a ethereum node over RPC",
+  "description": "Ethereum/Expanse JavaScript API, middleware to talk to a expanse/ethereum node over RPC",
   "main": "./index.js",
   "directories": {
     "lib": "./lib"
