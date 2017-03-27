@@ -1,8 +1,8 @@
 {
   "name": "web3-expanse",
   "namespace": "expanse",
-  "version": "0.15.3",
-  "description": "Expanse and Ethereum Compatible JavaScript API",
+  "version": "0.17.0-alpha",
+  "description": "Expanse Compatible JavaScript API",
   "main": [
     "./dist/web3.js",
     "./dist/web3.min.js"

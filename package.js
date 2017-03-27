@@ -1,7 +1,7 @@
 /* jshint ignore:start */
 Package.describe({
   name: 'expanse:web3',
-  version: '0.15.3',
+  version: '0.18.3',
   summary: 'Expanse and Ethereum JavaScript API, middleware to talk to an expanse or ethereum node over RPC',
   git: 'https://github.com/expanse-org/web3.js',
   // By default, Meteor will default to using README.md for documentation.
