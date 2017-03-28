@@ -1,5 +1,5 @@
 {
-  "name": "web3-expanse",
+  "name": "web3",
   "namespace": "expanse",
   "version": "0.18.3",
   "description": "Ethereum/Expanse JavaScript API, middleware to talk to a expanse/ethereum node over RPC",
